@@ -1,6 +1,8 @@
 const {commenting} = require('./service/bot')
 require('dotenv').config();
 
-commenting();
+console.log("starting")
+const active_bot = commenting();
+
 
 

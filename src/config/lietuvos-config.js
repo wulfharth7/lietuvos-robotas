@@ -1,5 +1,7 @@
 const { CommentStream } = require('snoostorm');
 const Snoowrap = require('snoowrap');
+require('dotenv').config();
+
 
 const client = new Snoowrap({
     userAgent: 'lietuvos-robotas',
@@ -17,9 +19,8 @@ const config = {
     debug: false
 }
 client.config(config)
-
 const comments = new CommentStream(client, { 
-    subreddit: 'Lithuania', 
+    subreddit: 'Lithuanian', 
     limit: 10, 
     pollTime: 10000 
 });
