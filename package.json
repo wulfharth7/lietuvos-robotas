@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "snoostorm": "^1.5.2",
+    "snoowrap": "^1.23.0"
+  }
+}
