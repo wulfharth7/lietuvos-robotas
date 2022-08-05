@@ -4,7 +4,7 @@ require('dotenv').config();
 
 
 const client = new Snoowrap({
-    userAgent: 'lietuvos-robotas',
+    userAgent: 'windows:snoowrap:v1.0:(by/u/turco_lietuvoje)',
     clientId: process.env.CLIENTID,
     clientSecret: process.env.CLIENTSECRET,
     username: process.env.USERNAME,
@@ -20,7 +20,7 @@ const config = {
 }
 client.config(config)
 const comments = new CommentStream(client, { 
-    subreddit: 'Lithuanian', 
+    subreddit: 'testingground4bots', 
     limit: 10, 
     pollTime: 10000 
 });
