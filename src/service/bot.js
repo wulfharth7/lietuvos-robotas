@@ -13,17 +13,18 @@ const canSummon = (msg) => {
     return msg && msg.toLowerCase().includes('!inspect');
 };
 
-const commenting = function(){
-    comments.on('item', (item) => {
+const commenting =  function(){
+    comments.on('item',async (item) => {
         try{
             if(item.created_utc < BOT_START) return;
             if(!canSummon(item.body)) return;
-            const extractedWord = extractor(item.body)
-            var tableFromWebsite = tableOfContent(extractedWord)
-            for(var i = 0; i < tableFromWebsite.length; i++) {
-                item.reply(JSON.stringify(tableFromWebsite[i]))
-            }
+            var extractedWord = extractor(item.body)
+            tableOfContent(extractedWord).then(function(tableofLog){
+                item.reply(tableofLog)
+                console.log(tableofLog)
+            })
         }catch(error){
+            console.log(error)
             item.reply('It seems to me that the word you\'ve written doesn\'t exist in lithuanian language.')
         }
     
