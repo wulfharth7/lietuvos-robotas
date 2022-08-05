@@ -1,5 +1,6 @@
 const {comments} = require('../config/lietuvos-config')
 const {extractor} = require('../util/extract-word')
+const {tableOfContent} = require('../util/get-table')
 const BOT_START = Date.now() / 1000;
 
 const canSummon = (msg) => {
@@ -14,11 +15,19 @@ const canSummon = (msg) => {
 
 const commenting = function(){
     comments.on('item', (item) => {
-    if(item.created_utc < BOT_START) return;
-    if(!canSummon(item.body)) return;
-    //console.log(item)
-    const extractedWord = extractor(item.body)
-    item.reply('you just wrote '+extractedWord);
+        try{
+            if(item.created_utc < BOT_START) return;
+            if(!canSummon(item.body)) return;
+            //console.log(item)
+            const extractedWord = extractor(item.body)
+            var tableFromWebsite = tableOfContent(extractedWord)
+            for(var i = 0; i < tableFromWebsite.length; i++) {
+                item.reply(JSON.stringify(tableFromWebsite[i]))
+            }
+        }catch(error){
+            item.reply('It seems to me that the word you\'ve written doesn\'t exist in lithuanian language.')
+        }
+    
 });
 } 
 
