@@ -6,8 +6,8 @@ const tableOfContent = function(query){
                 .then(function(tableData){
                     return tableData
                 });
-    }catch{
-        throw error//to be updated
+    }catch(e){
+        throw error
     }
     
 }
