@@ -18,7 +18,6 @@ const commenting = function(){
         try{
             if(item.created_utc < BOT_START) return;
             if(!canSummon(item.body)) return;
-            //console.log(item)
             const extractedWord = extractor(item.body)
             var tableFromWebsite = tableOfContent(extractedWord)
             for(var i = 0; i < tableFromWebsite.length; i++) {
