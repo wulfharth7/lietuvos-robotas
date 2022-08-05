@@ -1,5 +1,5 @@
 const extractor = function(query){
-    const pattern = /<[a-zA-Z]+\s?[a-zA-Z]*>/;
+    const pattern = /<[a-zA-Z]+>/; //only works with latin letters for now, to be updated
     const stringToSplit = query;
     const extractedWord= stringToSplit.match(pattern)
     extractedWord[0] = extractedWord[0].replace("<","")
