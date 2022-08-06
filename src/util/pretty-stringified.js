@@ -1,3 +1,4 @@
+const tablemark = require('tablemark')
 
 const prettifier = function(query){
     const newArr = convertArrays(query)
@@ -6,13 +7,16 @@ const prettifier = function(query){
         tidiedArr.push(newArr[i]["\Š\."])
         tidiedArr.push(newArr[i].Vienaskaita)
     }
-    console.log("tidied arr now")
-    console.log(tidiedArr)
-    var string="";
-    for(var i=0;i<tidiedArr.length;i+=2){
-        string = string+ " | "+tidiedArr[i]+ " | "+tidiedArr[i+1]+" |\n"
-    }
-    return string;
+    var redditTable = tablemark([
+        {Form:"V.",Vienaskaita:tidiedArr[0],Daugiaskaita:tidiedArr[1]},
+        {Form:"K.",Vienaskaita:tidiedArr[2],Daugiaskaita:tidiedArr[3]},
+        {Form:"K.",Vienaskaita:tidiedArr[4],Daugiaskaita:tidiedArr[5]},
+        {Form:"G.",Vienaskaita:tidiedArr[6],Daugiaskaita:tidiedArr[7]},
+        {Form:"Įn.",Vienaskaita:tidiedArr[8],Daugiaskaita:tidiedArr[9]},
+        {Form:"Vt.",Vienaskaita:tidiedArr[10],Daugiaskaita:tidiedArr[11]},
+        {Form:"Š.",Vienaskaita:tidiedArr[12],Daugiaskaita:tidiedArr[13]},
+    ])
+    return redditTable;
 }
 
 const convertArrays = function(array){

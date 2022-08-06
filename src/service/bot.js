@@ -20,14 +20,9 @@ const commenting =  function(){
             if(!canSummon(item.body)) return;
             var extractedWord = extractor(item.body)
             tableOfContent(extractedWord).then(function(tableofLog){
-                var string= "| Vienaskaita| Daugiaskaita |\n"+
-                "|-|-|\n"+tableofLog
-                
-                console.log(string)
-                item.reply(string)
+                item.reply(tableofLog)
             })
         }catch(error){
-            console.log(error)
             item.reply('It seems to me that the word you\'ve written doesn\'t exist in lithuanian language.')
         }
     
