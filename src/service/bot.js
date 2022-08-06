@@ -20,8 +20,11 @@ const commenting =  function(){
             if(!canSummon(item.body)) return;
             var extractedWord = extractor(item.body)
             tableOfContent(extractedWord).then(function(tableofLog){
-                item.reply(tableofLog)
-                console.log(tableofLog)
+                var string= "| Vienaskaita| Daugiaskaita |\n"+
+                "|-|-|\n"+tableofLog
+                
+                console.log(string)
+                item.reply(string)
             })
         }catch(error){
             console.log(error)
