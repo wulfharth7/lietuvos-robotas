@@ -2,16 +2,14 @@ var scraper = require('table-scraper');
 const {prettifier} = require('../util/pretty-stringified')
 
 const tableOfContent = function(query){
-    try{
         return scraper.get('https://morfologija.lietuviuzodynas.lt/zodzio-formos/'+query)
-                .then(function(tableData){
+                .then(function(tableData){ 
                     console.log(tableData)
                     return prettifier(tableData).toString() //JSON.stringify(tableData)
-                })
-    }catch(e){
-        throw error
-    }
-    
+                }) 
+                .catch((error)=>{
+                    return "error"
+                }) 
 }
 
 module.exports = {
