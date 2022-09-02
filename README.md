@@ -1,6 +1,6 @@
 # lietuvos-robotas
 🤖 a reddit bot to inflect words in languages
-
+[code review here](https://codereview.stackexchange.com/questions/278671/a-language-bot-for-creating-noun-declension-or-verb-conjugation-tables)
 I'll update the readme more when it's fully developed, but for now I'll share the screenshots of development here, this is the recent situation, works only for lithuanian now.
 
 **the bot decides if the given word is verb, noun or adjective and creates a table according to that**
